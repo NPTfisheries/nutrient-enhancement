@@ -53,3 +53,26 @@ See the [`scripts/`](./scripts) directory for R scripts related to:
 ├── scripts/                  # R scripts for analysis and visualization
 ├── figures/                  # Output plots and figures
 └── docs/                     # Any write-ups, reports, or methods notes
+```
+
+## 🔬 Citation / Attribution
+
+This project is led by the Nez Perce Tribe Department of Fisheries Resources Management.
+
+If you use data, code, or findings from this repository, please cite appropriately. For academic or collaborative use, contact the project lead to request permission or coordinate use.
+
+Kinzer, R.N., and Ackerman, M.A. Nez Perce Tribe DFRM. (2025). *Nutrient Enhancement Effects on Fish Productivity in the Snake River Basin*. Nez Perce Tribe Fisheries Research Division. GitHub repository: https://github.com/NPTfisheries/nutrient-enhancement
+
+## 📬 Contacts
+
+**Ryan N. Kinzer**  
+Fisheries Data Analyst, Research Division  
+Nez Perce Tribe, Department of Fisheries Resources Management  
+📧 [ryank@nezperce.org](mailto:ryank@nezperce.org)
+
+**Mike A. Ackerman**  
+Research Scientist, Research Division  
+Nez Perce Tribe, Department of Fisheries Resources Management  
+📧 [mikea@nezperce.org](mailto:mikea@nezperce.org)
+
+
