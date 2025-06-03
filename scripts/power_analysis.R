@@ -37,6 +37,7 @@ for(e in 1:eloop){
   }
 }
 
+save(low_results, high_results, singular_flags, file = './data/power_results/n100.rda')
 
 alpha <- .05 # prob. of a type I error (reject the Ho when the Ho is true)
 
