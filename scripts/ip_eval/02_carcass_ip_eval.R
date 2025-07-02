@@ -3,7 +3,7 @@
 # Purpose: 
 # 
 # Created: May 28, 2025
-#   Last Modified: 
+#   Last Modified: July 2, 2025
 # 
 # Notes:
 
@@ -81,28 +81,27 @@ load("C:/Git/SnakeRiverIPTDS/output/available_habitat/snake_river_iptds_and_pop_
 # escapement goals
 esc_goal_df = tribble(
   ~popid, ~low, ~med, ~high,
-  "CRLAP", 750, 1875, 3000, 
-  "SCLAW", 500, 1250, 2000,
   "SCUMA",1000, 2500, 4000,
   "CRLOL", 500, 1250, 2000,
-  "CRLOC",1000, 2500, 4000,
-  "SEMEA", 500, 1250, 2000,
-  "CRLMA-s", 1500, 4500, 7500,
+  "CRLAP", 750, 1875, 3000, 
+  #"SCLAW", 500, 1250, 2000,
+  #"CRLOC",1000, 2500, 4000,
+  #"SEMEA", 500, 1250, 2000,
   "CRSFC-s", 1000, 3000, 5000,
   "CRLOL-s",  500, 1500, 2500,
-  "CRLOC-s", 1000, 3000, 5000,
-  "CRSEL-s", 1000, 3000, 5000
+  "CRLMA-s", 1500, 4500, 7500,
+  #"CRLOC-s", 1000, 3000, 5000,
+  #"CRSEL-s", 1000, 3000, 5000
 )
 
-stream_order = c("Lolo_Cr",
-                 "Red_R",
-                 "American_R",
-                 "Crooked_R",
-                 "Newsome_Cr",
-                 "Meadow_Cr_SFCW",
-                 "OHara_Cr",
-                 "Lapwai_All",
-                 "Big_Canyon_Cr")
+stream_order = c("Lolo",
+                 "Red",
+                 "American",
+                 "Crooked",
+                 "Newsome",
+                 "Meadow",
+                 "Sweetwater",
+                 "Mission")
 
 # estimate proportion ip within potential study stream
 carcass_ip_df = streams_ip_df %>%
@@ -140,8 +139,13 @@ carcass_ip_df = streams_ip_df %>%
   mutate(site_code = factor(site_code, levels = stream_order)) %>%
   arrange(site_code)
 
-reach_length = 1000 # meters
-treatment_kg_df = carcass_ip_df %>%
+# grab reach length
+reaches_km = st_read(here("data/spatial/proposed_carcass_study_reaches.gpkg"), layer = "reaches") %>%
+  st_drop_geometry() %>%
+  select(stream, length_km)
+
+#reach_length = 1000 # meters
+treatment_df = carcass_ip_df %>%
   select(site_code,
          popid,
          avg_width_m,
@@ -149,18 +153,20 @@ treatment_kg_df = carcass_ip_df %>%
          p_ip,
          est_hist_n,
          est_hist_kg) %>%
+  left_join(reaches_km, 
+            join_by("site_code" == "stream")) %>%
   mutate(treatment = case_when(
-    site_code %in% c("Lolo_Cr", "Crooked_R") ~ "TH",
-    site_code %in% c("Red_R", "Newsome_Cr")  ~ "TL",
-    site_code %in% c("American_R", "Meadow_Cr_SFCW", "OHara_Cr", "Big_Canyon_Cr") ~ "C"
+    site_code %in% c("Lolo", "Crooked") ~ "TH",
+    site_code %in% c("Red", "Newsome")  ~ "TL",
+    site_code %in% c("American", "Meadow", "Mission") ~ "C"
   )) %>%
-  mutate(treatment_p = case_when(
+  mutate(multiplier = case_when(
     treatment == "TH" ~ 2.5,
     treatment == "TL" ~ 1.25,
     treatment == "C"  ~ 0
   ),
-  treatment_kg = est_hist_kg * treatment_p,
-  kg_m2 = treatment_kg / (reach_length * avg_width_m))
+  treatment_kg = est_hist_kg * multiplier,
+  kg_m2 = treatment_kg / ((length_km * 1000) * avg_width_m))
 
 sum(treatment_kg_df$treatment_kg, na.rm = T)
 

@@ -4,7 +4,7 @@
 #   analyses.
 # 
 # Created: May 8, 2025
-#   Last Modified: July 1, 2025
+#   Last Modified: July 2, 2025
 # 
 # Notes:
 
@@ -34,21 +34,22 @@ chnk_pops = spsm_pop %>%
 # prep sites to be evaluated
 streams_sf = tribble(
   ~site_code, ~chnk_popid, ~sthd_popid, ~latitude, ~longitude,
-  "Red_R", "SCUMA", "CRSFC-s", 45.80872, -115.47424,
-  "American_R", "SCUMA", "CRSFC-s", 45.80938, -115.47569,
-  "Crooked_R", "SCUMA", "CRSFC-s", 45.82283, -115.52799,
-  "Newsome_Cr", "SCUMA", "CRSFC-s", 45.82981, -115.61407,
-  "Meadow_Cr_SFCW", "SCUMA", "CRSFC-s", 45.82888, -115.92838,
-  "Lolo_Cr", "CRLOL", "CRLOL-s", 46.37235, -116.16307,
-  "OHara_Cr", "SEMEA", "CRSEL-s", 46.08432, -115.51683,
-  "Meadow_Cr_Sel", "SEMEA", "CRSEL-s", 46.04437, -115.29690,
-  "Pete_King_Cr", "CRLOC", "CRLOC-s", 46.16643, -115.59049,
-  "Legendary_Bear_Cr", "CRLOC", "CRLOC-s", 46.51249, -114.76309,
-  "Fishing_Cr", "CRLOC", "CRLOC-s", 46.49309, -114.85869,
-  "Lapwai_All", "CRLAP", "CRLMA-s", 46.44851, -116.81785,
+  "Lolo", "CRLOL", "CRLOL-s", 46.37235, -116.16307,
+  "Red", "SCUMA", "CRSFC-s", 45.80872, -115.47424,
+  "American", "SCUMA", "CRSFC-s", 45.80938, -115.47569,
+  "Crooked", "SCUMA", "CRSFC-s", 45.82283, -115.52799,
+  "Newsome", "SCUMA", "CRSFC-s", 45.82981, -115.61407,
+  "Meadow", "SCUMA", "CRSFC-s", 45.82888, -115.92838,
   "Sweetwater", "CRLAP", "CRLMA-s", 46.36907, -116.79592,
-  "Lapwai_Mission", "CRLAP", "CRLMA-s", 46.36890, -116.79456,
-  "Big_Canyon_Cr", "CRLAP", "CRLMA-s", 46.49634, -116.43420,
+  "Mission", "CRLAP", "CRLMA-s", 46.36707, -116.73569,
+  #"OHara_Cr", "SEMEA", "CRSEL-s", 46.08432, -115.51683,
+  #"Meadow_Cr_Sel", "SEMEA", "CRSEL-s", 46.04437, -115.29690,
+  #"Pete_King_Cr", "CRLOC", "CRLOC-s", 46.16643, -115.59049,
+  #"Legendary_Bear_Cr", "CRLOC", "CRLOC-s", 46.51249, -114.76309,
+  #"Fishing_Cr", "CRLOC", "CRLOC-s", 46.49309, -114.85869,
+  #"Lapwai_All", "CRLAP", "CRLMA-s", 46.44851, -116.81785,
+  #"Lapwai_Mission", "CRLAP", "CRLMA-s", 46.36890, -116.79456,
+  #"Big_Canyon_Cr", "CRLAP", "CRLMA-s", 46.49634, -116.43420,
 ) %>%
   st_as_sf(coords = c("longitude", "latitude"),
            crs = 4326) %>%          # got my waypoints using WGS 84
