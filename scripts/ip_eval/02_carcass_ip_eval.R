@@ -86,12 +86,12 @@ esc_goal_df = tribble(
   "CRLAP", 750, 1875, 3000, 
   #"SCLAW", 500, 1250, 2000,
   #"CRLOC",1000, 2500, 4000,
-  #"SEMEA", 500, 1250, 2000,
+  "SEMEA", 500, 1250, 2000,
   "CRSFC-s", 1000, 3000, 5000,
   "CRLOL-s",  500, 1500, 2500,
   "CRLMA-s", 1500, 4500, 7500,
   #"CRLOC-s", 1000, 3000, 5000,
-  #"CRSEL-s", 1000, 3000, 5000
+  "CRSEL-s", 1000, 3000, 5000
 )
 
 stream_order = c("Lolo",
@@ -99,7 +99,8 @@ stream_order = c("Lolo",
                  "American",
                  "Crooked",
                  "Newsome",
-                 "Meadow",
+                 "OHara",
+                 #"Meadow",
                  "Sweetwater",
                  "Mission")
 
@@ -158,16 +159,16 @@ treatment_df = carcass_ip_df %>%
   mutate(treatment = case_when(
     site_code %in% c("Lolo", "Crooked") ~ "TH",
     site_code %in% c("Red", "Newsome")  ~ "TL",
-    site_code %in% c("American", "Meadow", "Mission") ~ "C"
+    site_code %in% c("American", "OHara", "Mission") ~ "C"
   )) %>%
   mutate(multiplier = case_when(
-    treatment == "TH" ~ 2.5,
-    treatment == "TL" ~ 1.25,
+    treatment == "TH" ~ 3,
+    treatment == "TL" ~ 1.5,
     treatment == "C"  ~ 0
   ),
   treatment_kg = est_hist_kg * multiplier,
   kg_m2 = treatment_kg / ((length_km * 1000) * avg_width_m))
 
-sum(treatment_kg_df$treatment_kg, na.rm = T)
+sum(treatment_df$treatment_kg, na.rm = T)
 
 ### END SCRIPT
