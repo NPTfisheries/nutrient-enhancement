@@ -75,7 +75,7 @@ Fisheries Data Analyst, Research Division
 Nez Perce Tribe, Department of Fisheries Resources Management  
 📧 [ryank@nezperce.org](mailto:ryank@nezperce.org)
 
-**Mike A. Ackerman**  
+**Mike W. Ackerman**  
 Research Scientist, Research Division  
 Nez Perce Tribe, Department of Fisheries Resources Management  
 📧 [mikea@nezperce.org](mailto:mikea@nezperce.org)
