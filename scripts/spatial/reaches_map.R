@@ -3,7 +3,7 @@
 # Purpose: Create a map of proposed study reaches
 # 
 # Created: July 1, 2025
-#   Last Modified: July 2, 2025
+#   Last Modified: July 9, 2025
 # 
 # Notes:
 
@@ -19,6 +19,7 @@ library(tmap)
 # read in proposed study reaches
 reaches_sf = st_read(here("data/spatial/proposed_carcass_study_reaches.gpkg"), layer = "reaches") %>%
   st_transform(32611) %>%
+  filter(!stream == "OHara") %>%
   mutate(treatment = case_when(
     stream == "Sweetwater" ~ "High",
     TRUE ~ treatment

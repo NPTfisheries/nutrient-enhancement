@@ -3,7 +3,7 @@
 # Purpose: 
 # 
 # Created: May 28, 2025
-#   Last Modified: July 2, 2025
+#   Last Modified: July 9, 2025
 # 
 # Notes:
 
@@ -99,6 +99,7 @@ stream_order = c("Lolo",
                  "American",
                  "Crooked",
                  "Newsome",
+                 "Tenmile",
                  "OHara",
                  #"Meadow",
                  "Sweetwater",
@@ -159,7 +160,7 @@ treatment_df = carcass_ip_df %>%
   mutate(treatment = case_when(
     site_code %in% c("Lolo", "Crooked") ~ "TH",
     site_code %in% c("Red", "Newsome")  ~ "TL",
-    site_code %in% c("American", "OHara", "Mission") ~ "C"
+    site_code %in% c("American", "Tenmile", "OHara", "Mission") ~ "C"
   )) %>%
   mutate(multiplier = case_when(
     treatment == "TH" ~ 3,

@@ -4,7 +4,7 @@
 #   analyses.
 # 
 # Created: May 8, 2025
-#   Last Modified: July 2, 2025
+#   Last Modified: July 9, 2025
 # 
 # Notes:
 
@@ -39,6 +39,7 @@ streams_sf = tribble(
   "American", "SCUMA", "CRSFC-s", 45.80938, -115.47569,
   "Crooked", "SCUMA", "CRSFC-s", 45.82283, -115.52799,
   "Newsome", "SCUMA", "CRSFC-s", 45.82981, -115.61407,
+  "Tenmile", "SCUMA", "CRSFC-s", 45.80591, -115.68419,
   "OHara", "SEMEA", "CRSEL-s", 46.08432, -115.51683,
   #"Meadow", "SCUMA", "CRSFC-s", 45.82888, -115.92838,
   "Sweetwater", "CRLAP", "CRLMA-s", 46.36907, -116.79592,
