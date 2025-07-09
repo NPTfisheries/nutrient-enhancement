@@ -66,7 +66,7 @@ This project is led by the Nez Perce Tribe Department of Fisheries Resources Man
 
 If you use data, code, or findings from this repository, please cite appropriately. For academic or collaborative use, contact the project lead to request permission or coordinate use.
 
-Kinzer, R.N., and Ackerman, M.@. Nez Perce Tribe DFRM. (2025). *Carcass-Based Nutrient Supplementation: Evaluating Benefits to Juvenile Salmonids in the Clearwater River - Study Design*. Nez Perce Tribe Fisheries Research Division. GitHub repository: https://github.com/NPTfisheries/nutrient-enhancement
+Kinzer, R.N., and Ackerman, M.W. Nez Perce Tribe DFRM. (2025). *Carcass-Based Nutrient Supplementation: Evaluating Benefits to Juvenile Salmonids in the Clearwater River - Study Design*. Nez Perce Tribe Fisheries Research Division. GitHub repository: https://github.com/NPTfisheries/nutrient-enhancement
 
 ## 📬 Contacts
 
