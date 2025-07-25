@@ -147,8 +147,8 @@ carcass_ip_df = streams_ip_df %>%
   arrange(site_code)
 
 # write to .csv for sharing
-write_csv(carcass_ip_df,
-          file = here("output/carcass_ip_df.csv"))
+# write_csv(carcass_ip_df,
+#           file = here("output/carcass_ip_df.csv"))
 
 # grab reach length
 reaches_km = st_read(here("data/spatial/proposed_carcass_study_reaches.gpkg"), layer = "reaches") %>%
