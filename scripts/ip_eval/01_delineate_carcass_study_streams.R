@@ -51,6 +51,8 @@ streams_sf = tribble(
   #"Lapwai_All", "CRLAP", "CRLMA-s", 46.44851, -116.81785,
   #"Lapwai_Mission", "CRLAP", "CRLMA-s", 46.36890, -116.79456,
   #"Big_Canyon_Cr", "CRLAP", "CRLMA-s", 46.49634, -116.43420,
+  "SFSR_Weir", "SFSMA", "SFMAI-s", 44.66685, -115.70297,
+  "Johnson_Weir", "SFEFS", "SFMAI-s", 44.9012, -115.4889
 ) %>%
   st_as_sf(coords = c("longitude", "latitude"),
            crs = 4326) %>%          # got my waypoints using WGS 84

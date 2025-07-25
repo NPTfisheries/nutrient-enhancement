@@ -87,11 +87,14 @@ esc_goal_df = tribble(
   #"SCLAW", 500, 1250, 2000,
   #"CRLOC",1000, 2500, 4000,
   "SEMEA", 500, 1250, 2000,
+  "SFSMA", 1000, 5000, 8000,
+  "SFEFS", 1000, 2500, 4000,
   "CRSFC-s", 1000, 3000, 5000,
   "CRLOL-s",  500, 1500, 2500,
   "CRLMA-s", 1500, 4500, 7500,
   #"CRLOC-s", 1000, 3000, 5000,
-  "CRSEL-s", 1000, 3000, 5000
+  "CRSEL-s", 1000, 3000, 5000,
+  "SFMAI-s", 1000, 3000, 5000
 )
 
 stream_order = c("Lolo",
@@ -103,7 +106,9 @@ stream_order = c("Lolo",
                  "OHara",
                  #"Meadow",
                  "Sweetwater",
-                 "Mission")
+                 "Mission",
+                 "SFSR_Weir",
+                 "Johnson_Weir")
 
 # estimate proportion ip within potential study stream
 carcass_ip_df = streams_ip_df %>%
@@ -140,6 +145,10 @@ carcass_ip_df = streams_ip_df %>%
   filter(site_code %in% stream_order) %>%
   mutate(site_code = factor(site_code, levels = stream_order)) %>%
   arrange(site_code)
+
+# write to .csv for sharing
+write_csv(carcass_ip_df,
+          file = here("output/carcass_ip_df.csv"))
 
 # grab reach length
 reaches_km = st_read(here("data/spatial/proposed_carcass_study_reaches.gpkg"), layer = "reaches") %>%
